@@ -159,7 +159,7 @@ class _PinPutPageState extends State<PinPutPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
                         Text(
-                          'تمامی حقوق متعلق به کیمیا الکترونیک(الکترو کالا) است.',
+                          'تمامی حقوق متعلق به کیمیا الکترونیک (الکترو کالا) است.',
                           textDirection: TextDirection.rtl,
                           style: TextStyle(fontSize: 11),
                         ),
@@ -173,7 +173,7 @@ class _PinPutPageState extends State<PinPutPage> {
                           style: TextStyle(fontSize: 11),
                         ),
                         Text(
-                          'در صورت بروز مشکل با شماره روبرو تماس بگیرید:',
+                          'در صورت بروز مشکل با این شماره تماس بگیرید:',
                           textDirection: TextDirection.rtl,
                           style: TextStyle(fontSize: 11),
                         ),

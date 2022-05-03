@@ -220,7 +220,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                       decoration: const InputDecoration(
                           border: OutlineInputBorder(),
-                          labelText: 'شماره سریال',
+                          labelText: 'شماره سریال محصول',
                           icon: Icon(Icons.qr_code)),
                     ),
                   ),
@@ -257,7 +257,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
                     Text(
-                      'تمامی حقوق متعلق به کیمیا الکترونیک(الکترو کالا) است.',
+                      'تمامی حقوق متعلق به کیمیا الکترونیک (الکتروکالا) است.',
                       textDirection: TextDirection.rtl,
                       style: TextStyle(fontSize: 11),
                     ),
@@ -271,7 +271,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: TextStyle(fontSize: 11),
                     ),
                     Text(
-                      'در صورت بروز مشکل با شماره روبرو تماس بگیرید:',
+                      'در صورت بروز مشکل با این شماره تماس بگیرید:',
                       textDirection: TextDirection.rtl,
                       style: TextStyle(fontSize: 11),
                     ),

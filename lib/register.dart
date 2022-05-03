@@ -10,7 +10,7 @@ import 'package:simple_fontellico_progress_dialog/simple_fontico_loading.dart';
 
 import 'main.dart';
 import 'msb.dart';
-
+String agentName='';
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
 
@@ -179,6 +179,10 @@ class _RegisterPageState extends State<RegisterPage> {
                             for (var element in bodyList) {
                               if(element['agent_pass'].toString().trim()==_agentPass.text && element['agent_id'].toString().trim()==_agent.text ){
                                 agentT=true;
+                                agentName=element['name'];
+                                logD(agentName);
+                                reqBody.addAll({'name':agentName});
+                                card.addAll({'name':agentName});
                                 dbUpdate(reqBody, serial, 'garranty', (status2, responseBody2) {
                                   if(status2==200){
                                     _pr.hide();
@@ -233,7 +237,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       style: TextStyle(fontSize: 11),
                     ),
                     Text(
-                      'در صورت بروز مشکل با شماره روبرو تماس بگیرید:',
+                      'در صورت بروز مشکل با این شماره تماس بگیرید:',
                       textDirection: TextDirection.rtl,
                       style: TextStyle(fontSize: 11),
                     ),

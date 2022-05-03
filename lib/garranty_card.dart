@@ -48,12 +48,12 @@ class GCard extends StatelessWidget {
         ));
       }
 
-      if (key.toString().trim() == 'agent') {
+      if (key.toString().trim() == 'name') {
         _wl.add(Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(value.toString()),
-            const Text('کد نمایندگی'),
+            const Text('نمایندگی'),
           ],
         ));
       }

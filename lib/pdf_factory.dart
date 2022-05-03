@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -51,17 +50,17 @@ Future<void> makePdfCard(Map _card) async {
       ));
     }
 
-    if (key.toString().trim() == 'agent') {
+    if (key.toString().trim() == 'name') {
       wl.add(pw.Row(
         mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
         children: [
           pw.Text(value.toString(),
-              textDirection: pw.TextDirection.ltr,
+              textDirection: pw.TextDirection.rtl,
               style: pw.TextStyle(
                 font: ttf,
                 fontSize: 12,
               )),
-          pw.Text('کد نمایندگی',
+          pw.Text('نمایندگی',
               textDirection: pw.TextDirection.rtl,
               style: pw.TextStyle(
                 font: ttf,
@@ -162,7 +161,7 @@ Future<void> makePdfCard(Map _card) async {
           textDirection: pw.TextDirection.rtl,
           style: pw.TextStyle(
             font: ttf,
-            fontSize: 9,
+            fontSize: 8,
           ))));
 
   wl.add(pw.Container(
@@ -177,7 +176,7 @@ Future<void> makePdfCard(Map _card) async {
           ))));
 
   var url =
-      'http://garranty.msb-co.ir/?phone=' + phone! + '&' + 'serial=' + serial!;
+      'https://garranty.msb-co.ir/?phone=' + phone! + '&' + 'serial=' + serial!;
   wl.add(pw.Row(mainAxisAlignment: pw.MainAxisAlignment.center, children: [
     pw.Text('لینک استعلام صحت گارانتی:',
         textDirection: pw.TextDirection.rtl,
@@ -189,7 +188,7 @@ Future<void> makePdfCard(Map _card) async {
 
   wl.add(pw.Container(
       alignment: pw.Alignment.center,
-      child: pw.Link(
+      child: pw.UrlLink(
         destination: url,
         child: pw.Text(url,
             style: const pw.TextStyle(
@@ -202,7 +201,7 @@ Future<void> makePdfCard(Map _card) async {
 
   wl.add(pw.Container(
       alignment: pw.Alignment.center,
-      child: pw.Link(
+      child: pw.UrlLink(
         destination: 'https://msb-co.ir/',
         child: pw.Text('https://msb-co.ir/',
             style: const pw.TextStyle(

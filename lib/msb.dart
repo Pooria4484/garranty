@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/retry.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import 'main.dart';
 const host="http://srv.msb-co.ir/tools/";
@@ -24,8 +24,8 @@ const dbUpdateAction='update';
 const dbInsertAction='insert';
 const otpHost ='http://api.kavenegar.com/v1/356C5763506A62304B6B78447235337855495265784851414C6F33362B557A6F484559345A5847434878493D/verify/lookup.json';
 const otpHostSsl ='https://api.kavenegar.com/v1/356C5763506A62304B6B78447235337855495265784851414C6F33362B557A6F484559345A5847434878493D/verify/lookup.json';
-void LaunchURL(String url) async {
-    if (!await launch(url)) throw 'Could not launch $url';
+void launchURLLink(String url) async {
+    if (!await launchUrlString(url)) throw 'Could not launch $url';
 }
 
 
