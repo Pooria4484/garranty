@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer'as dv;
 import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_frame/flutter_web_frame.dart';
+import 'package:g_recaptcha_v3/g_recaptcha_v3.dart';
 import 'package:garranty/garranty_card.dart';
 import 'package:garranty/msb.dart';
 import 'package:garranty/pinput_page.dart';
@@ -22,10 +24,20 @@ void logD(s) {
   }
 }
 
-void main() {
+Future<bool> generateToken() async {
+  String? token = await GRecaptchaV3.execute('submit'); //--3
+  dv.log(token.toString());
+  return true;
+  // send token to server and verify
+}
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
   setUrlStrategy(PathUrlStrategy());
   serial = Uri.base.queryParameters["serial"];
   phone = Uri.base.queryParameters["phone"];
+  await GRecaptchaV3.ready("6LeKzb8fAAAAAECVEzhBz205LwM0AuK9t6YZcJx-");
+  await GRecaptchaV3.showBadge();
   runApp(const MyApp());
 }
 
@@ -70,6 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String res = '';
 
   void reg(bool isNew) async {
+    generateToken();
     var _pr = SimpleFontelicoProgressDialog(
         context: context, barrierDimisable: false);
     if (_formKey2.currentState!.validate() &&
@@ -302,11 +315,11 @@ class _StartPageState extends State<StartPage> {
   var ttimer, _pr;
   bool f = false;
 
-  void handle() {
+  void handle() async{
     _pr = SimpleFontelicoProgressDialog(
         context: context, barrierDimisable: false);
     if (!f) {
-      _pr.show(message: '');
+      //_pr.show(message: '');
       f = true;
       ttimer.cancel();
       ttimer = timer(1000);

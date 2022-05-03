@@ -44,6 +44,7 @@ dependencies:
   shamsi_date: ^1.0.1
   google_fonts: ^2.3.2
   simple_fontellico_progress_dialog: ^0.2.1
+  g_recaptcha_v3: ^0.0.4
 dev_dependencies:
   flutter_test:
     sdk: flutter
